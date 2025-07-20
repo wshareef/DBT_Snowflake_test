@@ -6,4 +6,4 @@ sources:
     schema: RAW
     tables:
       - name: orders_raw
-      - name: customers_raw
+      - name: customers_raw 
