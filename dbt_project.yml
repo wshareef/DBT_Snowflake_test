@@ -1,0 +1,12 @@
+name: 'dbt_snowflake_test'
+version: '1.0'
+profile: 'default'
+
+models:
+  dbt_snowflake_test:
+    bronze:
+      +schema: raw
+    silver:
+      +schema: cleaned
+    gold:
+      +schema: agg
