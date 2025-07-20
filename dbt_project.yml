@@ -1,12 +1,33 @@
 name: 'dbt_snowflake_test'
-version: '1.0'
+version: '1.0.0'
+config-version: 2
+
 profile: 'default'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
 
 models:
   dbt_snowflake_test: 
+    +materialized: view
     bronze:
-      +schema: raw
+      +database: bronze
+      +schema: sales
+      +materialized: table
     silver:
-      +schema: cleaned 
+      +database: silver
+      +schema: sales
+      +materialized: table
     gold:
-      +schema: agg
+      +database: gold
+      +schema: sales
+      +materialized: view

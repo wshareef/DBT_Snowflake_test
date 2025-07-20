@@ -1,3 +1,4 @@
+
 SELECT
     o.order_id,
     o.customer_id,
